@@ -12,7 +12,7 @@ export default function App() {
     <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-        <Band />
+        <Band /><Band /><Band /><Band /><Band />
       </Physics>
       <Environment background blur={0.75}>
         <color attach="background" args={['white']} />
