@@ -1,7 +1,6 @@
 import { Environment, Lightformer, useGLTF, useTexture } from '@react-three/drei'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
-import { useControls } from 'leva'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
@@ -9,11 +8,10 @@ import * as THREE from 'three'
 extend({ MeshLineGeometry, MeshLineMaterial })
 
 export default function App() {
-  const { debug } = useControls({ debug: false })
   return (
     <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
-      <Physics debug={debug} interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
+      <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
       </Physics>
       <Environment background blur={0.75}>
